@@ -6,9 +6,9 @@ import AdminCollection from '../models/adminSchema.js';
 
 
 export const createAdmin = async (req, res) => {
-    const { email, username, password } = req.body;
-
+    
     try {
+        const { email, username, password } = req.body;
         // check if the admin already exit
         const admin = await AdminCollection.findOne({ email });
         if (admin) {
@@ -51,8 +51,8 @@ export const createAdmin = async (req, res) => {
 }
 
 export const getAdmin = async (req, res) => {
-    const username = req.params.username;
     try {
+        const username = req.params.username;
         const admin = await AdminCollection.find({ username: username });
         res.status(200).json(admin);
     } catch (error) {
