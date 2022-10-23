@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const connection = async (username, password) =>{
     // const url = `mongodb+srv://${username}:${password}@itisabhi.7tvxggl.mongodb.net/?retryWrites=true&w=majority`;
@@ -11,4 +11,4 @@ const connection = async (username, password) =>{
     }
 }
 
-export default connection;
+module.exports = connection;

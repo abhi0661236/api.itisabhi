@@ -1,11 +1,9 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from "bcryptjs";
+const jwt = require('jsonwebtoken');
+const bcrypt =  require("bcryptjs");
+const AdminCollection =  require('../models/adminSchema.js');
 
 
-import AdminCollection from '../models/adminSchema.js';
-
-
-export const createAdmin = async (req, res) => {
+const createAdmin = async (req, res) => {
     
     try {
         const { email, username, password } = req.body;
@@ -50,7 +48,7 @@ export const createAdmin = async (req, res) => {
     }
 }
 
-export const getAdmin = async (req, res) => {
+const getAdmin = async (req, res) => {
     try {
         const username = req.params.username;
         const admin = await AdminCollection.find({ username: username });
@@ -60,6 +58,8 @@ export const getAdmin = async (req, res) => {
     }
 }
 
-export const greet = async (req, res) => {
+const greet = async (req, res) => {
     res.json({"message": "server is up"});
 }
+
+module.exports = {createAdmin, getAdmin, greet}

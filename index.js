@@ -1,9 +1,9 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import connection from './database/db.js';
-import router from './routes/routes.js';
-import cors from 'cors'
-import bodyParser from 'body-parser';
+const express = require('express');
+const dotenv = require('dotenv');
+const connection = require('./database/db.js');
+const router = require('./routes/routes.js');
+const cors = require('cors')
+const bodyParser = require('body-parser');
 
 
 
@@ -31,4 +31,4 @@ app.listen(PORT, ()=>{
     console.log("Server is running at" + PORT)
 });
 
-export default app;
+module.exports = app;
