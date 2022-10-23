@@ -10,9 +10,9 @@ export const createAdmin = async (req, res) => {
 
     try {
         // check if the admin already exit
-        const admin = await AdminCollection.findOne({email});
-        if(admin){
-            return res.status(400).json({msg: 'Email already exists.'});
+        const admin = await AdminCollection.findOne({ email });
+        if (admin) {
+            return res.status(400).json({ msg: 'Email already exists.' });
         }
 
         // create new admin
@@ -37,10 +37,10 @@ export const createAdmin = async (req, res) => {
         jwt.sign(
             payload,
             process.env.JWT_SECRET,
-            {expiresIn: '7 days'},
+            { expiresIn: '7 days' },
             (err, token) => {
-                if(err) throw err;
-                res.json({token});
+                if (err) throw err;
+                res.json({ token });
             }
         );
 
@@ -58,4 +58,8 @@ export const getAdmin = async (req, res) => {
     } catch (error) {
         res.status(404).json({ message: error.message })
     }
+}
+
+export const greet = async (req, res) => {
+    res.json({"message": "server is up"});
 }
