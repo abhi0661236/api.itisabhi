@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import autoIncrement from 'mongoose-auto-increment';
 
 
 
@@ -9,8 +8,6 @@ const adminSchema = mongoose.Schema({
     password: String
 });
 
-autoIncrement.initialize(mongoose.connection);
-adminSchema.plugin(autoIncrement.plugin, 'admin');
 
 const admin = mongoose.model('admin', adminSchema);
 
